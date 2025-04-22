@@ -1,0 +1,51 @@
+.form-tarea {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .form-tarea input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .form-tarea input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.25);
+  }
+  
+  .form-tarea button {
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .form-tarea button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+  
+  .form-tarea button:active {
+    transform: translateY(0);
+  }
+  
+  .form-tarea button:disabled {
+    background-color: var(--gray-color);
+    cursor: not-allowed;
+    transform: none;
+  }

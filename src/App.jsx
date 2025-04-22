@@ -1,16 +1,13 @@
-import { useState } from 'react'
-
-import './App.css'
-import TodoForm from './Modules/TodoForm/TodoForm'
-
+//import { useState } from "react";
+import ListaDeTareas from "./Modules/ListaDeTareas/ListaDeTareas";
+import "./App.css";
 
 function App() {
-
   return (
-    <>
-      <TodoForm/>
-    </>
-  )
+    <div className="app">
+      <ListaDeTareas />
+    </div>
+  );
 }
 
-export default App
+export default App;

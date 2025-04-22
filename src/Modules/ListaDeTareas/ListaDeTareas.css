@@ -1,0 +1,81 @@
+.contenedor-tareas {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.7s ease-out;
+  }
+  
+  .lista-tareas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .sin-tareas {
+    text-align: center;
+    padding: 2rem;
+    color: var(--gray-color);
+    font-size: 1.1rem;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .acciones-rapidas {
+    margin-top: 2rem;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .acciones-rapidas button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .acciones-rapidas button:first-child {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  .acciones-rapidas button:last-child {
+    background-color: var(--danger-color);
+    color: white;
+  }
+  
+  .acciones-rapidas button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .acciones-rapidas button:active {
+    transform: translateY(0);
+  }
+  
+  .acciones-rapidas button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .contador-tareas {
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    font-style: italic;
+  }
