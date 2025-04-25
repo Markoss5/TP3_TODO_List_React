@@ -1,12 +1,8 @@
-//import { useState } from "react";
-import ListaDeTareas from "./Modules/ListaDeTareas/ListaDeTareas";
-import "./App.css";
-
+import AgregaTareas from "./Modules/AgregaTareas/AgregaTareas";
 function App() {
   return (
-    <div className="app">
-      <ListaDeTareas />
-    </div>
+    <AgregaTareas/>
+ 
   );
 }
 

@@ -1,36 +1,58 @@
-import { useState, useRef } from "react";
-import "./AgregaTareas.css";
+import React, { useState } from 'react'
+import './AgregaTareas.css'
 
-export default function AgregaTareas({ onAgregar }) {
-  const [texto, setTexto] = useState("");
-  const inputRef = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (texto.trim()) {
-      onAgregar(texto);
-      setTexto("");
-      inputRef.current.focus();
+function AgregaTareas(){
+  const [Tareas, setTareas] = useState([])  
+let agregarTareaa=()=>{
+    //Tomar valor del input y llamar a set tareas y agregarle el valor al array
+  }
+  
+  return(
+    <>
+      <div id="todo-form">
+        <input type="text" className="input-item" id="tareaAagregar"   value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Agregue una tarea" required/>
+        <button id="input-button" onClick={agregarTareaa(Tarea)}>Agregar</button>
+    </div>
+    </>
+  )
+
+  }
+
+  export default AgregaTareas
+
+/*
+  import React, { useState } from 'react';
+
+function AgregaTareas() {
+  const [inputValue, setInputValue] = useState('');
+  const [tareas, setTareas] = useState([]);
+
+  const agregarTarea = () => {
+    if (inputValue.trim() !== '') {
+      setTareas([...tareas, inputValue]);
+      setInputValue('');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-tarea">
+    <div>
       <input
-        ref={inputRef}
         type="text"
-        value={texto}
-        onChange={(e) => setTexto(e.target.value)}
-        placeholder="Escribe una tarea"
-        aria-label="Nueva tarea"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Agregue una tarea"
       />
-      <button 
-        type="submit" 
-        disabled={!texto.trim()}
-        aria-label="Agregar tarea"
-      >
-        ➕ Agregar
-      </button>
-    </form>
-  );
-}
+      <button onClick={agregarTarea}>Agregar</button>
+
+      {/* Mostrar lista de tareas */}
+//       <ul>
+//         {tareas.map((tarea, index) => (
+//           <li key={index}>{tarea}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default AgregaTareas;*/
