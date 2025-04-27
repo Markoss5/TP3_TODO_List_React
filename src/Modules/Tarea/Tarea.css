@@ -1,127 +1,68 @@
 .tarea {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    box-shadow: var(--box-shadow);
-    animation: fadeIn 0.5s ease-out;
-  }
-  
-  .tarea:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tarea.completada {
-    background-color: #f8f9fa;
-  }
-  
-  .tarea.completada .texto-tarea {
-    color: var(--gray-color);
-    text-decoration: line-through;
-  }
-  
-  .checkbox-tarea {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 4px;
-    margin-right: 12px;
-    cursor: pointer;
-    position: relative;
-    transition: var(--transition);
-  }
-  
-  .checkbox-tarea:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-  }
-  
-  .checkbox-tarea:checked::after {
-    content: '✓';
-    position: absolute;
-    color: white;
-    font-size: 12px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .texto-tarea {
-    flex: 1;
-    margin: 0 12px;
-    word-break: break-word;
-    transition: var(--transition);
-    cursor: pointer;
-  }
-  
-  .tarea input[type="text"] {
-    flex: 1;
-    padding: 8px 12px;
-    border: 2px solid #e9ecef;
-    border-radius: 4px;
-    font-size: 1rem;
-    margin-right: 8px;
-    transition: var(--transition);
-  }
-  
-  .tarea input[type="text"]:focus {
-    outline: none;
-    border-color: var(--accent-color);
-  }
-  
-  .tarea button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: var(--transition);
-    padding: 4px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .tarea button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    transform: scale(1.1);
-  }
-  
-  .tarea button:active {
-    transform: scale(0.95);
-  }
-  
-  /* Animación para cuando se agrega una nueva tarea */
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  .lista-tareas li {
-    animation: slideIn 0.3s ease-out forwards;
-  }
-  
-  /* Efecto al eliminar tarea */
-  .tarea-eliminada {
-    animation: fadeOut 0.3s ease-out forwards;
-  }
-  
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-      height: 0;
-      padding: 0;
-      margin: 0;
-      transform: translateX(20px);
-    }
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.tarea:hover {
+  background: #f1f1f1;
+}
+
+.contenido-tarea {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.texto-tarea {
+  font-size: 16px;
+  color: #333;
+  transition: 0.3s;
+}
+
+/* ✅ Cuando está completada */
+.tarea.completada .texto-tarea {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.fecha-tarea {
+  font-size: 12px;
+  color: #888;
+}
+
+.acciones-tarea {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-tachar, .btn-eliminar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.btn-tachar svg {
+  transition: stroke 0.3s;
+}
+
+.btn-tachar:hover svg {
+  stroke: #00cc66;
+}
+
+.btn-eliminar {
+  color: #ff5c5c;
+}
+
+.btn-eliminar:hover {
+  color: #ff1c1c;
+}

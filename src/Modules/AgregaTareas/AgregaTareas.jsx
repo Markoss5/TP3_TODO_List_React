@@ -1,58 +1,63 @@
-import React, { useState } from 'react'
-import './AgregaTareas.css'
+import React, { useState } from 'react';
+import './AgregaTareas.css';
 
+function AgregaTareas({ listaTareas, setListaTareas }) {
+  const [inputTarea, setInputTarea] = useState('');
+  const [contadorID, setContadorID] = useState(0);
 
-function AgregaTareas(){
-  const [Tareas, setTareas] = useState([])  
-let agregarTareaa=()=>{
-    //Tomar valor del input y llamar a set tareas y agregarle el valor al array
-  }
-  
-  return(
-    <>
-      <div id="todo-form">
-        <input type="text" className="input-item" id="tareaAagregar"   value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Agregue una tarea" required/>
-        <button id="input-button" onClick={agregarTareaa(Tarea)}>Agregar</button>
-    </div>
-    </>
-  )
-
-  }
-
-  export default AgregaTareas
-
-/*
-  import React, { useState } from 'react';
-
-function AgregaTareas() {
-  const [inputValue, setInputValue] = useState('');
-  const [tareas, setTareas] = useState([]);
+  const esValida = (texto) => texto.trim().length > 0;
 
   const agregarTarea = () => {
-    if (inputValue.trim() !== '') {
-      setTareas([...tareas, inputValue]);
-      setInputValue('');
+    if (!esValida(inputTarea)) {
+      alert('Por favor escribe algo válido');
+      return;
     }
+
+    const nuevaTarea = {
+      id: contadorID,
+      texto: inputTarea,
+      fechaCreado: new Date(),
+      estaTachado: false,
+      fechaTachado: null
+    };
+
+    setContadorID(contadorID + 1);
+    setListaTareas([...listaTareas, nuevaTarea]);
+    setInputTarea('');
+  };
+
+  const tareaMasRapida = () => {
+    const tareasTachadas = listaTareas.filter(t => t.estaTachado);
+
+    if (tareasTachadas.length === 0) {
+      console.log("ERROR: No hay tareas tachadas");
+      return;
+    }
+
+    let tareaRapida = tareasTachadas[0];
+    tareasTachadas.forEach(tarea => {
+      const tiempoActual = tarea.fechaTachado - tarea.fechaCreado;
+      const tiempoRapido = tareaRapida.fechaTachado - tareaRapida.fechaCreado;
+      if (tiempoActual < tiempoRapido) {
+        tareaRapida = tarea;
+      }
+    });
+
+    alert(`La tarea más rápida fue "${tareaRapida.texto}", tardando ${(tareaRapida.fechaTachado - tareaRapida.fechaCreado)/ 60000} Minutos`);
   };
 
   return (
-    <div>
+    <div className="agregador-tareas">
       <input
         type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Agregue una tarea"
+        value={inputTarea}
+        onChange={(e) => setInputTarea(e.target.value)}
+        placeholder="Agrega una tarea..."
       />
       <button onClick={agregarTarea}>Agregar</button>
+      <button onClick={tareaMasRapida}>Tarea más rápida</button>
+    </div>
+  );
+}
 
-      {/* Mostrar lista de tareas */}
-//       <ul>
-//         {tareas.map((tarea, index) => (
-//           <li key={index}>{tarea}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default AgregaTareas;*/
+export default AgregaTareas;
